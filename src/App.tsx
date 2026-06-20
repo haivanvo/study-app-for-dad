@@ -391,22 +391,24 @@ export default function App() {
                     setSelectedCategory('all');
                   }}
                   id="tab_all_exercises"
-                  className={`relative p-5 rounded-2xl text-left border-2 cursor-pointer transition-all ${
+                  className={`relative p-5 pb-12 rounded-2xl text-left border-2 cursor-pointer transition-all flex flex-col justify-between h-full ${
                     selectedCategory === 'all'
                       ? 'border-teal-500 bg-teal-50/40 ring-1 ring-teal-500'
                       : 'border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-3 bg-teal-100/70 text-teal-800 rounded-xl">
-                      <Layers className="w-5 h-5" />
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-3 bg-teal-100/70 text-teal-800 rounded-xl">
+                        <Layers className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-black bg-teal-100 text-teal-800 px-2 py-0.5 rounded-lg text-nowrap">
+                        {EXERCISES_DATA.length} bài học
+                      </span>
                     </div>
-                    <span className="text-xs font-black bg-teal-100 text-teal-800 px-2 py-0.5 rounded-lg text-nowrap">
-                      {EXERCISES_DATA.length} bài học
-                    </span>
+                    <h4 className="font-extrabold text-slate-900 text-base">Học Tổng Hợp</h4>
+                    <p className="text-xs text-slate-500 mt-1">Đầy đủ tất cả bài học từ nhận diện cơ bản đến giao tiếp hàng ngày.</p>
                   </div>
-                  <h4 className="font-extrabold text-slate-900 text-base">Học Tổng Hợp</h4>
-                  <p className="text-xs text-slate-500 mt-1 pb-4">Đầy đủ tất cả bài học từ nhận diện cơ bản đến giao tiếp hàng ngày.</p>
                   {selectedCategory === 'all' && (
                     <div className="absolute bottom-3 right-3 text-xs font-black text-teal-700 bg-white border border-teal-200 px-2 py-0.5 rounded-lg">
                       Đang chọn ✓
@@ -422,22 +424,24 @@ export default function App() {
                     setSelectedCategory('co_ban');
                   }}
                   id="tab_basic_exercises"
-                  className={`relative p-5 rounded-2xl text-left border-2 cursor-pointer transition-all ${
+                  className={`relative p-5 pb-12 rounded-2xl text-left border-2 cursor-pointer transition-all flex flex-col justify-between h-full ${
                     selectedCategory === 'co_ban'
                       ? 'border-teal-500 bg-teal-50/40 ring-1 ring-teal-500'
                       : 'border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-3 bg-amber-100 text-amber-800 rounded-xl">
-                      <Sparkles className="w-5 h-5" />
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-3 bg-amber-100 text-amber-800 rounded-xl">
+                        <Sparkles className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-black bg-amber-100 text-amber-800 px-2 py-0.5 rounded-lg text-nowrap">
+                        {EXERCISES_DATA.filter(e => e.category === 'co_ban').length} bài học
+                      </span>
                     </div>
-                    <span className="text-xs font-black bg-amber-100 text-amber-800 px-2 py-0.5 rounded-lg text-nowrap">
-                      {EXERCISES_DATA.filter(e => e.category === 'co_ban').length} bài học
-                    </span>
+                    <h4 className="font-extrabold text-slate-900 text-base">Từ Vựng Cơ Bản</h4>
+                    <p className="text-xs text-slate-500 mt-1">Quả trái, gia đình, xe cộ, nhà cửa... khơi dậy nhận thức phản xạ ban đầu.</p>
                   </div>
-                  <h4 className="font-extrabold text-slate-900 text-base">Từ Vựng Cơ Bản</h4>
-                  <p className="text-xs text-slate-500 mt-1 pb-4">Quả trái, gia đình, xe cộ, nhà cửa... khơi dậy nhận thức phản xạ ban đầu.</p>
                   {selectedCategory === 'co_ban' && (
                     <div className="absolute bottom-3 right-3 text-xs font-black text-teal-700 bg-white border border-teal-200 px-2 py-0.5 rounded-lg">
                       Đang chọn ✓
@@ -453,22 +457,24 @@ export default function App() {
                     setSelectedCategory('vat_dung');
                   }}
                   id="tab_household_exercises"
-                  className={`relative p-5 rounded-2xl text-left border-2 cursor-pointer transition-all ${
+                  className={`relative p-5 pb-12 rounded-2xl text-left border-2 cursor-pointer transition-all flex flex-col justify-between h-full ${
                     selectedCategory === 'vat_dung'
                       ? 'border-teal-500 bg-teal-50/40 ring-1 ring-teal-500'
                       : 'border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-3 bg-emerald-100 text-emerald-800 rounded-xl">
-                      <Home className="w-5 h-5" />
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-3 bg-emerald-100 text-emerald-800 rounded-xl">
+                        <Home className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-black bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-lg text-nowrap">
+                        {EXERCISES_DATA.filter(e => e.category === 'vat_dung').length} bài học
+                      </span>
                     </div>
-                    <span className="text-xs font-black bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-lg text-nowrap">
-                      {EXERCISES_DATA.filter(e => e.category === 'vat_dung').length} bài học
-                    </span>
+                    <h4 className="font-extrabold text-slate-900 text-base">Vật Dụng</h4>
+                    <p className="text-xs text-slate-500 mt-1">Cái ghế, giường ngủ, chổi quét, bàn chải... các đồ vật quen gần gũi trong nhà.</p>
                   </div>
-                  <h4 className="font-extrabold text-slate-900 text-base">Vật Dụng</h4>
-                  <p className="text-xs text-slate-500 mt-1 pb-4">Cái ghế, giường ngủ, chổi quét, bàn chải... các đồ vật quen gần gũi trong nhà.</p>
                   {selectedCategory === 'vat_dung' && (
                     <div className="absolute bottom-3 right-3 text-xs font-black text-teal-700 bg-white border border-teal-200 px-2 py-0.5 rounded-lg">
                       Đang chọn ✓
@@ -484,22 +490,24 @@ export default function App() {
                     setSelectedCategory('giao_tiep');
                   }}
                   id="tab_dialogue_exercises"
-                  className={`relative p-5 rounded-2xl text-left border-2 cursor-pointer transition-all ${
+                  className={`relative p-5 pb-12 rounded-2xl text-left border-2 cursor-pointer transition-all flex flex-col justify-between h-full ${
                     selectedCategory === 'giao_tiep'
                       ? 'border-teal-500 bg-teal-50/40 ring-1 ring-teal-500'
                       : 'border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-3 bg-purple-100 text-purple-800 rounded-xl">
-                      <MessageSquare className="w-5 h-5" />
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-3 bg-purple-100 text-purple-800 rounded-xl">
+                        <MessageSquare className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-black bg-purple-100 text-purple-800 px-2 py-0.5 rounded-lg text-nowrap">
+                        {EXERCISES_DATA.filter(e => e.category === 'giao_tiep').length} bài học
+                      </span>
                     </div>
-                    <span className="text-xs font-black bg-purple-100 text-purple-800 px-2 py-0.5 rounded-lg text-nowrap">
-                      {EXERCISES_DATA.filter(e => e.category === 'giao_tiep').length} bài học
-                    </span>
+                    <h4 className="font-extrabold text-slate-900 text-base">Giao Tiếp</h4>
+                    <p className="text-xs text-slate-500 mt-1">Luyện nói câu ngắn: Đi tắm, đi ngủ, uống nước, đi vệ sinh, đi dạo sảng khoái.</p>
                   </div>
-                  <h4 className="font-extrabold text-slate-900 text-base">Giao Tiếp</h4>
-                  <p className="text-xs text-slate-500 mt-1 pb-4">Luyện nói câu ngắn: Đi tắm, đi ngủ, uống nước, đi vệ sinh, đi dạo sảng khoái.</p>
                   {selectedCategory === 'giao_tiep' && (
                     <div className="absolute bottom-3 right-3 text-xs font-black text-teal-700 bg-white border border-teal-200 px-2 py-0.5 rounded-lg">
                       Đang chọn ✓
@@ -515,22 +523,24 @@ export default function App() {
                     setSelectedCategory('gia_dinh_minh');
                   }}
                   id="tab_family_exercises"
-                  className={`relative p-5 rounded-2xl text-left border-2 cursor-pointer transition-all ${
+                  className={`relative p-5 pb-12 rounded-2xl text-left border-2 cursor-pointer transition-all flex flex-col justify-between h-full ${
                     selectedCategory === 'gia_dinh_minh'
                       ? 'border-rose-500 bg-rose-50/50 ring-1 ring-rose-500'
                       : 'border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-3 bg-rose-100 text-rose-800 rounded-xl">
-                      <Users className="w-5 h-5" />
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="p-3 bg-rose-100 text-rose-800 rounded-xl">
+                        <Users className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-black bg-rose-100 text-rose-800 px-2 py-0.5 rounded-lg text-nowrap">
+                        {EXERCISES_DATA.filter(e => e.category === 'gia_dinh_minh').length} bài học
+                      </span>
                     </div>
-                    <span className="text-xs font-black bg-rose-100 text-rose-800 px-2 py-0.5 rounded-lg text-nowrap">
-                      {EXERCISES_DATA.filter(e => e.category === 'gia_dinh_minh').length} bài học
-                    </span>
+                    <h4 className="font-extrabold text-slate-900 text-base">Gia Đình Mình</h4>
+                    <p className="text-xs text-slate-500 mt-1">Nhận diện gương mặt người thân, gọi tên thành viên và bày tỏ tình cảm gia đình.</p>
                   </div>
-                  <h4 className="font-extrabold text-slate-900 text-base">Gia Đình Mình</h4>
-                  <p className="text-xs text-slate-500 mt-1 pb-4">Nhận diện gương mặt người thân, gọi tên thành viên và bày tỏ tình cảm gia đình.</p>
                   {selectedCategory === 'gia_dinh_minh' && (
                     <div className="absolute bottom-3 right-3 text-xs font-black text-rose-700 bg-white border border-rose-200 px-2 py-0.5 rounded-lg">
                       Đang chọn ✓
