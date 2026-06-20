@@ -270,7 +270,7 @@ export default function App() {
       
       {/* 🌟 APPMETADATA HEADER */}
       <header className="bg-white border-b border-teal-50 shadow-sm sticky top-0 z-40" id="main_header">
-        <div className="max-w-4xl mx-auto px-4 py-4.5 flex items-center justify-between">
+        <div className="max-w-4xl lg:max-w-5xl xl:max-w-7xl mx-auto px-4 py-4.5 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="p-2.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-2xl text-white shadow-md">
               <Brain className="w-7 h-7 stroke-[2.2]" />
@@ -330,7 +330,7 @@ export default function App() {
       )}
 
       {/* 📦 MAIN CONTENT CONTAINER */}
-      <main className="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 space-y-6">
+      <main className="flex-1 max-w-4xl lg:max-w-5xl xl:max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
         
         {/* VIEW 1: WELCOME / HOME DASHBOARD */}
         {!isSessionStarted && !isSessionFinished && (
@@ -740,7 +740,7 @@ export default function App() {
 
       {/* 💚 SIMPLE CARE FOOTER */}
       <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500" id="main_footer_bottom">
-        <div className="max-w-4xl mx-auto px-4 space-y-1">
+        <div className="max-w-4xl lg:max-w-5xl xl:max-w-7xl mx-auto px-4 space-y-1">
           <p className="font-semibold text-slate-700">Ứng dụng phục hồi chức năng tiếng Việt an toàn cho gia đình.</p>
           <p>Dành riêng cho cha Hải.</p>
         </div>
