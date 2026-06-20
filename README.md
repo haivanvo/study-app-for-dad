@@ -1,4 +1,4 @@
-<img width="2048" height="2048" alt="icon" src="https://github.com/user-attachments/assets/0488dd5a-7a4c-4c2a-95e4-b2bfcb03e52c" />
+<img width="120" height="120" alt="icon" src="https://github.com/user-attachments/assets/0488dd5a-7a4c-4c2a-95e4-b2bfcb03e52c" />
 
 # Run and deploy the AI Studio app
 
