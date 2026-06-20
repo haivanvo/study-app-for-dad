@@ -141,6 +141,18 @@ export default function App() {
     }
   }, []);
 
+  // Tăng/giảm kích thước chữ toàn diện cho toàn bộ trang web (Elderly-Friendly Accessibility)
+  useEffect(() => {
+    const root = document.documentElement;
+    if (settings.fontSize === 'normal') {
+      root.style.fontSize = '16px';
+    } else if (settings.fontSize === 'large') {
+      root.style.fontSize = '19px'; // Standard slightly larger for elderly
+    } else if (settings.fontSize === 'huge') {
+      root.style.fontSize = '23px'; // Very big font size, easily visible
+    }
+  }, [settings.fontSize]);
+
   // Vận hành Scheduler ngầm để so khớp giờ hẹn và bắn thông báo đẩy "Nhắc nhở giờ học ấm áp"
   useEffect(() => {
     let lastNotifiedDate = '';
