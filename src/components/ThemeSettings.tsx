@@ -147,7 +147,7 @@ export const ThemeSettings: React.FC<ThemeSettingsProps> = ({
       <div className="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 space-y-1.5 shadow-sm" id="tip_volume_settings">
         <p className="font-extrabold flex items-center gap-1.5 text-sm text-amber-850">
           <Volume2 className="w-4 h-4 shrink-0 text-amber-600 animate-pulse" />
-          <span>Mẹo giúp giọng đọc to rõ hơn cho chaa:</span>
+          <span>Mẹo giúp giọng đọc to rõ hơn cho cha:</span>
         </p>
         <ul className="list-disc list-inside space-y-1 text-slate-600 pl-1 font-semibold">
           <li>Tăng âm lượng hệ thống của thiết bị lên mức tối đa.</li>
