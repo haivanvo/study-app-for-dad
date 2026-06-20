@@ -113,7 +113,7 @@ export const ReminderModal: React.FC<ReminderModalProps> = ({
                 <span>Nhắc nhở giờ học ấm áp</span>
                 <span className="text-xs bg-teal-100 text-teal-800 font-bold px-2.5 py-0.5 rounded-full">Tính năng mới</span>
               </h2>
-              <p className="text-xs text-slate-500 mt-1">Con yêu gửi lời động viên tới ba vào mỗi khung giờ vàng hẹn trước.</p>
+              <p className="text-xs text-slate-500 mt-1">Con yêu gửi lời động viên tới cha vào mỗi khung giờ vàng hẹn trước.</p>
             </div>
           </div>
 
@@ -186,8 +186,8 @@ export const ReminderModal: React.FC<ReminderModalProps> = ({
             {/* Custom precise time control */}
             <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
-                <p className="font-bold text-slate-800 text-sm">Hẹn khung giờ khác tùy ý ba mẹ:</p>
-                <p className="text-[11px] text-slate-400 mt-0.5">Nhập chính xác giờ học mà ba mẹ mong đợi.</p>
+                <p className="font-bold text-slate-800 text-sm">Hẹn khung giờ khác tùy ý cha mẹ:</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">Nhập chính xác giờ học mà cha mẹ mong đợi.</p>
               </div>
               <input
                 type="time"
@@ -204,7 +204,7 @@ export const ReminderModal: React.FC<ReminderModalProps> = ({
                 <span>Ví dụ nội dung nhắc nhở ngẫu nhiên:</span>
               </p>
               <div className="bg-white p-3 rounded-xl border border-teal-50 text-sm italic text-slate-700 font-medium relative pr-10 shadow-sm leading-relaxed">
-                "Thời tiết hôm nay đẹp quá ba ơi, ba con mình cùng luyện chữ một chút nhé! ❤️"
+                "Thời tiết hôm nay đẹp quá cha ơi, cha con mình cùng luyện từ một chút nhé! ❤️"
                 <div className="absolute right-3.5 bottom-2 text-xs flex items-center space-x-0.5 text-teal-600">
                   <Heart className="w-3.5 h-3.5 fill-current" />
                 </div>
