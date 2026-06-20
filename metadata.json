@@ -1,0 +1,10 @@
+{
+  "name": "Phục hồi Ngôn ngữ",
+  "description": "Ứng dụng hỗ trợ phục hồi và học lại tiếng Việt cho người sau đột quỵ với giao diện trực quan, chữ lớn và giọng đọc sinh động.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
