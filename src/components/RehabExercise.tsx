@@ -250,11 +250,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
                   <span>👉 Chạm vào từng từ trên để máy đọc riêng từ đó</span>
                 </p>
               </div>
-              {exercise.helperText && (
-                <p className="text-slate-500 text-sm italic max-w-lg mx-auto bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  💡 Hướng dẫn phát âm: {exercise.helperText}
-                </p>
-              )}
+              
             </div>
 
             {/* Huge Voice Playback and Recording triggers */}
@@ -333,11 +329,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
               })}
             </div>
 
-            {exercise.helperText && !isAnswered && (
-              <p className="text-slate-500 text-sm text-center italic bg-slate-50 rounded-xl p-3 max-w-lg mx-auto border border-slate-100">
-                💡 Gợi ý của con: {exercise.helperText}
-              </p>
-            )}
+           
           </div>
         )}
 
@@ -393,7 +385,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
         <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-center animate-pulse" id="mic_recording_feed">
           <p className="text-rose-800 font-bold text-lg flex items-center justify-center space-x-2">
             <span className="w-3 h-3 rounded-full bg-rose-600 animate-ping shrink-0" />
-            <span>Đang lắng nghe ba phát âm... Cha hãy nói to rõ nhé</span>
+            <span>Đang lắng nghe cha phát âm... Cha hãy nói to rõ nhé</span>
           </p>
         </div>
       )}
@@ -427,12 +419,12 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
             )}
             <div>
               <p className="font-extrabold text-xl">
-                {isCorrect ? 'Cha đã hoàn thành tuyệt vời !' : 'Chưa khớp hoàn toàn cha ơi!'}
+                {isCorrect ? 'Cha đã hoàn thành tuyệt vời !' : 'Chưa khớp hoàn toàn cha ơi! Cha nói to rõ lên nhé!'}
               </p>
               <p className={`text-sm ${isCorrect ? 'text-emerald-50' : 'text-rose-600 font-medium'}`}>
                 {isCorrect 
-                  ? 'Kỹ năng phản sinh và thanh quản của cha tiến triển quá xuất sắc!'
-                  : 'Đừng nản chí cha nhé. Bấm "Nghe giọng mẫu" để nghe lại và bập bẹ theo.'}
+                  ? 'Kỹ năng nói của cha đang tiến triển hơn đó!'
+                  : 'Đừng nản chí cha nhé. Bấm "Nghe giọng mẫu" để nghe lại và nói theo.'}
               </p>
             </div>
           </div>
