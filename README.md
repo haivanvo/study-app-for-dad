@@ -1,6 +1,6 @@
 <img width="120" height="120" alt="icon" src="https://github.com/user-attachments/assets/0488dd5a-7a4c-4c2a-95e4-b2bfcb03e52c" />
 
-* Run locally *
+# · · ─ ·ʚɞ· ─ · · Study app for Dad · · ─ ·ʚɞ· ─ · ·
 
 **Prerequisites:**  Node.js
 
