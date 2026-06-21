@@ -1,13 +1,10 @@
-# Run and deploy your AI Studio app
+This app is for my dad's post-stroke language recovery, deployed as a PWA with Google AI Studio assisting in coding. I don't come from a web/app development background, so this project was a fun learning experience for me. My goal wasn't to build the perfect app, but to create something my dad would genuinely enjoy using, since existing language-learning apps were often either too childish and distracting or too generic for his needs.
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/047c14ad-9751-405a-bc62-439e58292c2a
+P/s: He likes it ^^ One of his favorite lessons is learning how to read and say the names of family members!
 
 ## Run Locally
 
 **Prerequisites:**  Node.js
-
 
 1. Install dependencies:
    `npm install`
