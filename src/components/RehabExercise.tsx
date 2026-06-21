@@ -146,7 +146,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
       if (event.error === 'not-allowed') {
         setSpeechError('Vui lòng kích hoạt quyền Micro trên trình duyệt để ghi âm.');
       } else {
-        setSpeechError('Không nhận diện rõ âm thanh. Cha hãy nói lại hay nhờ mẹ bấm nút xác nhận nhé!');
+        setSpeechError('Không nhận diện rõ âm thanh. Cha hãy nói lại hoặc nhờ mẹ bấm nút xác nhận nhé!');
       }
     };
 
@@ -478,7 +478,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
                 <span>Dành cho thành viên gia đình hỗ trợ (Caregiver)</span>
               </p>
               <p className="text-slate-500 text-xs sm:text-sm">
-                Nếu cha nói đúng nhưng micro điện thoại không bắt rõ, con hãy bấm nút dưới đây để công nhận và khích lệ cha.
+                Nếu cha nói đúng nhưng micro điện thoại không bắt rõ, bấm nút dưới đây để công nhận và khích lệ cha.
               </p>
             </div>
             <button
