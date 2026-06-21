@@ -113,7 +113,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
 
     setIsRecording(true);
     setSpeechError(null);
-    setTranscription('Cha đang phát âm... Cha hãy nói to rõ nhé...');
+    setTranscription('');
 
     rec.onstart = () => {
       console.log('Voice listening started');
@@ -176,6 +176,34 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
 
   const currentFontSize = settings.fontSize;
 
+  // Tách câu thành từng từ để cho phép chạm vào từ nào máy phát âm riêng từ đó cực kỳ tiện lợi
+  const renderInteractiveWordTokens = (phrase: string, textStyleClass: string) => {
+    const tokens = phrase.split(/\s+/);
+    return (
+      <span className={`${textStyleClass} inline-flex flex-wrap justify-center gap-x-2 gap-y-1`}>
+        {tokens.map((token, idx) => {
+          // Làm sạch từ để phát âm chuẩn xác nhất (bỏ dấu chấm, phẩy, ngoặc kép...)
+          const cleanToken = token.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()""“‘”’]/g, "").trim();
+          return (
+            <span
+              key={idx}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (cleanToken) {
+                  speakUtterance(cleanToken);
+                }
+              }}
+              className="inline-block cursor-pointer border-b-3 border-dashed border-teal-300 hover:border-amber-500 hover:text-amber-600 hover:scale-105 active:scale-95 px-1 rounded-lg transition-all hover:bg-teal-50"
+              title="Chạm để nghe từ này"
+            >
+              {token}
+            </span>
+          );
+        })}
+      </span>
+    );
+  };
+
   return (
     <div className="bg-white border-2 border-slate-100 rounded-3xl p-6 sm:p-10 shadow-lg space-y-8" id="active_exercise_panel">
       
@@ -216,9 +244,12 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
             {/* Pronunciation Target Block */}
             <div className="text-center space-y-3">
               <span className="text-slate-400 font-medium text-sm">Từ phát âm:</span>
-              <p className={`font-extrabold text-teal-900 leading-tight uppercase tracking-wider ${getFontSizeClass()}`} id="identify_word">
-                {exercise.word}
-              </p>
+              <div className="flex flex-col items-center select-none" id="identify_word">
+                {renderInteractiveWordTokens(exercise.word, `font-extrabold text-teal-900 leading-tight uppercase tracking-wider ${getFontSizeClass()}`)}
+                <p className="text-[11px] text-teal-700 font-extrabold mt-2 uppercase tracking-wider flex items-center justify-center gap-1 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">
+                  <span>👉 Chạm vào từng từ trên để máy đọc riêng từ đó</span>
+                </p>
+              </div>
               {exercise.helperText && (
                 <p className="text-slate-500 text-sm italic max-w-lg mx-auto bg-slate-50 border border-slate-100 rounded-xl p-3">
                   💡 Hướng dẫn phát âm: {exercise.helperText}
@@ -317,11 +348,14 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
             {/* Speech bubble vector representing audio speaker */}
             <div className="bg-gradient-to-b from-blue-50 to-teal-50 border-2 border-dashed border-teal-200 rounded-3xl p-6 sm:p-10 w-full text-center relative max-w-xl shadow-inner">
               <span className="text-slate-400 font-semibold text-xs tracking-wider uppercase block mb-3">Câu luyện giao tiếp:</span>
-              <p className={`font-black text-teal-900 tracking-wide leading-relaxed uppercase select-all ${
-                currentFontSize === 'huge' ? 'text-4xl sm:text-5xl' : currentFontSize === 'large' ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl'
-              }`} id="repeat_word">
-                "{exercise.word}"
-              </p>
+              <div className="flex flex-col items-center" id="repeat_word">
+                {renderInteractiveWordTokens(exercise.word, `font-black text-teal-900 tracking-wide leading-relaxed uppercase ${
+                  currentFontSize === 'huge' ? 'text-4xl sm:text-5xl' : currentFontSize === 'large' ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl'
+                }`)}
+                <p className="text-[11px] text-teal-700 font-extrabold mt-3.5 uppercase tracking-wider flex items-center justify-center gap-1 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">
+                  <span>👉 Chạm vào từ bất kỳ phía trên để nghe máy phát âm từ lẻ</span>
+                </p>
+              </div>
             </div>
 
             {/* Giant Action targets */}

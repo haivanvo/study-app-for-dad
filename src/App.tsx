@@ -56,6 +56,9 @@ export default function App() {
   // Encouragement toast state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   
+  // Lưu danh sách id câu hỏi đã trả lời đúng trong phiên để tránh tính trùng số từ đã học
+  const [answeredCorrectlyInSession, setAnsweredCorrectlyInSession] = useState<Set<string>>(new Set());
+  
   // Trạng thái mở/đóng modal nhắc nhở học tập
   const [isReminderOpen, setIsReminderOpen] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'co_ban' | 'vat_dung' | 'giao_tiep' | 'gia_dinh_minh'>('all');
@@ -169,7 +172,18 @@ export default function App() {
       // Xem giờ hiện tại có trùng với giờ cài đặt hay không và trong ngày hôm nay đã nhắc chưa
       if (currentTimeString === settings.reminderTime && lastNotifiedDate !== todayStr) {
         lastNotifiedDate = todayStr;
+        
+        // 1. Gửi thông báo đẩy hệ thống (PWA Web Push)
         triggerWarmNotification();
+
+        // 2. Dự phòng: Đọc lời nhắn bằng giọng nói (TTS) lớn và hiện Toast trực tiếp trong app
+        if ('speechSynthesis' in window) {
+          const reminderMsg = "Bố mẹ ơi, đến giờ rèn luyện tiếng Việt cùng con rồi ạ. Bố mẹ cùng bật máy lên tập nói nhé!";
+          const utterance = new SpeechSynthesisUtterance(reminderMsg);
+          utterance.rate = 0.85;
+          window.speechSynthesis.speak(utterance);
+        }
+        setToastMessage("Bố mẹ ơi, đến giờ rèn luyện tiếng Việt cùng con rồi ạ! Ba mẹ hãy chạm 'Bắt đầu học' nhé! ❤️");
       }
     };
 
@@ -195,6 +209,30 @@ export default function App() {
 
   // Run on completing an exercise correctly
   const handleCorrectAnswer = () => {
+    const currentEx = activeExercises[currentExerciseIndex];
+    if (currentEx && !answeredCorrectlyInSession.has(currentEx.id)) {
+      const nextSet = new Set(answeredCorrectlyInSession);
+      nextSet.add(currentEx.id);
+      setAnsweredCorrectlyInSession(nextSet);
+
+      // Ghi nhận trực tiếp số từ đã học ngay khi trả lời đúng xuất sắc
+      const todayStr = new Date().toISOString().split('T')[0];
+      const newCompletedCount = stats.completedCount + 1;
+
+      const updatedStats: UserStats = {
+        ...stats,
+        completedCount: newCompletedCount,
+        lastActiveDate: todayStr
+      };
+
+      setStats(updatedStats);
+      try {
+        localStorage.setItem('stroke_rehab_stats', JSON.stringify(updatedStats));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
     // Show random warm encouraging Vietnamese phrase
     const randomIndex = Math.floor(Math.random() * SUCCESS_MESSAGES.length);
     setToastMessage(SUCCESS_MESSAGES[randomIndex]);
@@ -224,13 +262,11 @@ export default function App() {
     setIsSessionFinished(true);
     setIsSessionStarted(false);
 
-    // Update historical milestones
+    // Update historical milestones (just update streaks, as words completed are saved incrementally now)
     const todayStr = new Date().toISOString().split('T')[0];
-    const newCompletedCount = stats.completedCount + activeExercises.length;
     
     const updatedStats: UserStats = {
       ...stats,
-      completedCount: newCompletedCount,
       lastActiveDate: todayStr,
       streak: stats.streak + 1 // Increment streak upon finishing a full block
     };
@@ -249,6 +285,8 @@ export default function App() {
     const filtered = EXERCISES_DATA.filter(
       ex => selectedCategory === 'all' || ex.category === selectedCategory
     );
+    // Reset session answered set
+    setAnsweredCorrectlyInSession(new Set());
     setActiveExercises(shuffleExercises(filtered));
     setCurrentExerciseIndex(0);
     setIsSessionStarted(true);
@@ -262,6 +300,8 @@ export default function App() {
     const filtered = EXERCISES_DATA.filter(
       ex => selectedCategory === 'all' || ex.category === selectedCategory
     );
+    // Reset session answered set
+    setAnsweredCorrectlyInSession(new Set());
     setActiveExercises(shuffleExercises(filtered));
     setCurrentExerciseIndex(0);
     setIsSessionFinished(false);
