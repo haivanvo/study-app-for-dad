@@ -2,7 +2,11 @@ This app is for my dad's post-stroke language recovery, deployed as a PWA with G
 
 P.S. He likes it! ^^ One of his favorite lessons is learning how to read and say the names of family members.
 
-## Run Locally
+# Demo 
+
+https://study-app-for-dad.vercel.app
+
+# Run locally
 
 **Prerequisites:**  Node.js
 
@@ -12,6 +16,6 @@ P.S. He likes it! ^^ One of his favorite lessons is learning how to read and say
 3. Run the app:
    `npm run dev`
 
---
+-----------
 
-Note: I built this with a lot of help from Google AI Studio. Please be kind if you peek under the hood ‹𝟹
+**Note**: I built this with a lot of help from Google AI Studio. Please be kind if you peek under the hood ‹𝟹
