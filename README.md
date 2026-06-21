@@ -1,14 +1,6 @@
 <img width="120" height="120" alt="icon" src="https://github.com/user-attachments/assets/0488dd5a-7a4c-4c2a-95e4-b2bfcb03e52c" />
 
-# Run and deploy the AI Studio app
-
-This contains everything you need to run the app locally.
-
-View app in AI Studio: https://ai.studio/apps/047c14ad-9751-405a-bc62-439e58292c2a
-
-
-
-# Run Locally
+* Run locally *
 
 **Prerequisites:**  Node.js
 
