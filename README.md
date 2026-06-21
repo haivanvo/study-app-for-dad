@@ -2,11 +2,11 @@ This app is for my dad's post-stroke language recovery, deployed as a PWA with G
 
 P.S. He likes it! ^^ One of his favorite lessons is learning how to read and say the names of family members.
 
-# Demo 
+# Demo ⋆˚࿔
 
 https://study-app-for-dad.vercel.app
 
-# Run locally
+# Run locally ⋆˚࿔
 
 **Prerequisites:**  Node.js
 
