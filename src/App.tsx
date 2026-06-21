@@ -178,12 +178,12 @@ export default function App() {
 
         // 2. Dự phòng: Đọc lời nhắn bằng giọng nói (TTS) lớn và hiện Toast trực tiếp trong app
         if ('speechSynthesis' in window) {
-          const reminderMsg = "Bố mẹ ơi, đến giờ rèn luyện tiếng Việt cùng con rồi ạ. Bố mẹ cùng bật máy lên tập nói nhé!";
+          const reminderMsg = "Cha mẹ ơi, đến giờ rèn luyện tiếng Việt cùng Béo rồi ạ. Cha mẹ cùng bật máy lên tập nói nhé!";
           const utterance = new SpeechSynthesisUtterance(reminderMsg);
           utterance.rate = 0.85;
           window.speechSynthesis.speak(utterance);
         }
-        setToastMessage("Bố mẹ ơi, đến giờ rèn luyện tiếng Việt cùng con rồi ạ! Ba mẹ hãy chạm 'Bắt đầu học' nhé! ❤️");
+        setToastMessage("Cha mẹ ơi, đến giờ rèn luyện tiếng Việt cùng Béo rồi ạ! Mình bắt đầu học nhé! ❤️");
       }
     };
 
