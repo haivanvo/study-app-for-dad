@@ -9,6 +9,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
+      // Warm up caching for standalone offline tablet support
       return cache.addAll(ASSETS_TO_CACHE).catch(() => {});
     })
   );
@@ -29,7 +30,29 @@ self.addEventListener('activate', (e) => {
   );
 });
 
+// Handle notification click to bring the app to focus or open it instantly on user device
+self.addEventListener('notificationclick', (e) => {
+  e.notification.close();
+
+  // Đây là logic tối ưu giúp đưa app ra cận cảnh khi click chạm vào thông báo ngoài thiết bị di động
+  e.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
+      // Nếu app đang mở sẵn, focus vào nó
+      for (const client of windowClients) {
+        if (client.url && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      // Nếu app chưa mở, kích hoạt mở một tab/window độc lập mới
+      if (self.clients.openWindow) {
+        return self.clients.openWindow('/');
+      }
+    })
+  );
+});
+
 self.addEventListener('fetch', (e) => {
+  // Use a stale-while-revalidate or Network-first strategy for smooth offline support on older tablets
   if (e.request.method !== 'GET') return;
   
   e.respondWith(
