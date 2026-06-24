@@ -422,7 +422,7 @@ export const RehabExercise: React.FC<RehabExerciseProps> = ({
             )}
             <div>
               <p className="font-extrabold text-xl">
-                {isCorrect ? 'Cha đã hoàn thành tuyệt vời !' : 'Chưa khớp hoàn toàn cha ơi!'}
+                {isCorrect ? 'Cha đã hoàn thành tốt!' : 'Chưa khớp hoàn toàn cha ơi!'}
               </p>
               <p className={`text-sm ${isCorrect ? 'text-emerald-50' : 'text-rose-600 font-medium'}`}>
                 {isCorrect 
