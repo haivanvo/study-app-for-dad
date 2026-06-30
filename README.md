@@ -8,11 +8,13 @@ https://study-app-for-dad.vercel.app
 
 # Run locally ⋆˚࿔
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Copy the example environment file and add your API key:
+   `cp .env.example .env.local`
+   Then open `.env.local` and set `GEMINI_API_KEY` to your Gemini API key
 3. Run the app:
    `npm run dev`
 
