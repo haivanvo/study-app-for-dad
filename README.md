@@ -20,4 +20,4 @@ https://study-app-for-dad.vercel.app
 
 -----------
 
-Note: This was built with significant help from Google AI Studio for the initial implementation, with my own changes layered on top as I tested and iterated. Please be kind if you peek under the hood ‹𝟹
+**Note**: This was built with significant help from Google AI Studio for the initial implementation, with my own changes layered on top as I tested and iterated. Please be kind if you peek under the hood ‹𝟹
